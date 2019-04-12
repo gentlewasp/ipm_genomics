@@ -1,0 +1,13 @@
+git clone --recursive https://github.com/kakitone/finishingTool.git
+
+install MUMer3 in  ./finishingTool/MUMmer3 
+make clean
+make CPPFLAGS="-O3 -DSIXTYFOURBITS"
+
+perl -pe 's/>[^\$]*$/">Seg" . ++$n ."\n"/ge' contigs.fasta > contigs1.fasta
+
+perl -pe 's/>[^\$]*$/">Seg" . ++$n ."\n"/ge' raw_reads.fasta > raw_reads1.fasta
+
+将以上2个文件置于destinedFolder文件夹下
+
+time nohup python ./finishingTool/finisherSC.py -par 100 destinedFolder ./finishingTool/MUMmer3 > finishi.log &
