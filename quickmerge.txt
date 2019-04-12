@@ -1,0 +1,11 @@
+###install
+git clone --recursive https://github.com/mahulchak/quickmerge.git
+
+git clone --recursive https://github.com/marbl/MUMmer3
+
+bash make_merger.sh
+###use
+export PATH=/ipm1/shared/software/quickmerge:/ipm1/shared/software/quickmerge/MUMmer3.23:$PATH
+
+time nohup /ipm1/shared/software/quickmerge/merge_wrapper.py -hco 5.0 -c 1.5 -l 562875 -ml 5000 ../cs.hiseq.genome.fa ../cs.gq.canu.fasta > log1 &
+####-l 562875,  the N50 of the self assembly, cs.gq.canu.fasta
