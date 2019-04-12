@@ -1,0 +1,28 @@
+1. 下载falcon
+wget https://downloads.pacbcloud.com/public/falcon/falcon-2018.31.08-03.06-py2.7-ucs4-beta.tar.gz
+2. 配置python环境，创建独立Python开发环境的工具, 来解决依赖、版本以及间接权限问题
+conda install virtualenv
+virtualenv falcon
+source falcon/bin/activate
+3. 解压falcon文件
+tar xvzf falcon-2018.31.08-03.06-py2.7-ucs4-beta.tar.gz -C falcon
+4. 基本使用
+export PYTHONUSERBASE=falcon
+export LD_LIBRARY_PATH=falcon/lib:${LD_LIBRARY_PATH}
+export PATH=falcon/bin:${PATH}
+5. try it
+which samtools
+samtools --help
+pbalign --help
+variantCaller -h
+python2.7 -c 'import pysam; print pysam'
+python2.7 -c 'import falcon_unzip; print falcon_unzip'
+
+
+on our linux：
+
+source /ipm1/shared/software/falcon/falcon/bin/activate
+export PYTHONUSERBASE=/ipm1/shared/software/falcon/falcon
+export LD_LIBRARY_PATH=/ipm1/shared/software/falcon/falcon/lib:${LD_LIBRARY_PATH}
+export PATH=/ipm1/shared/software/falcon/falcon/bin:${PATH}
+time nohup /ipm1/shared/software/falcon/falcon/bin/fc_run fc_px_gaoqiang.cfg &
